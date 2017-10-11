@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgis
+  encoding: utf8
+  pool: 5
+  username: hguzman
+  password: usrio01
+  host: localhost
+  schema_search_path: public
+
+development:
+  <<: *default
+  database: economato_development
+
+test:
+  <<: *default
+  database: economato_test
+
+production:
+  <<: *default
+  database: <%= ENV['RDS_DB_NAME'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>
