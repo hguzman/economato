@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Program:
+  = @ficha.program.nombre
+%p
+  %b Fecha inicio at:
+  = @ficha.fecha_inicio_at
+%p
+  %b Fecha fin at:
+  = @ficha.fecha_fin_at
+
+= link_to 'Edit', edit_ficha_path(@ficha)
+\|
+= link_to 'Back', fichas_path

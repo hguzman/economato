@@ -1,0 +1,23 @@
+= simple_form_for(@consolidado) do |fc|
+  = fc.error_notification
+
+  .form-inputs
+    = fc.association :contrato, label_method: :numero, input_html: {class: "select2select", "data-placeholder": "Seleccione contrato"}
+    = fc.association :teacher, label_method: :nombre, input_html: {class: "select2select", "data-placeholder": "Seleccione instructor"}
+    = fc.input :ficha_id, collection: Teacher.all, as: :grouped_select, group_method: :fichas, label_method: :ficha, group_label_method: :nombre
+
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Producto
+          %th Cantidad
+          %th Observaciones
+          %th Opciones
+      %tfoot
+        %tr
+          %td{colspan: 4}= link_to_add_fields "Adicionar otro articulo", fc, :detalles
+      %tbody
+        = fc.simple_fields_for :detalles do |f|
+          = render "detalle_fields", f: f
+  .form-actions
+    = fc.button :submit

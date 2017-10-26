@@ -1,0 +1,10 @@
+= simple_form_for(@detalle) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :producto
+    = f.input :cantidad
+    = f.association :consolidado
+
+  .form-actions
+    = f.button :submit

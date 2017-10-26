@@ -1,0 +1,23 @@
+%h1 Listing teachers
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Nombre
+      %th Contrato
+      %th Celular
+      %th{colspan: "3"} Acciones
+
+  %tbody
+    - @teachers.each do |teacher|
+      %tr
+        %td= teacher.nombre
+        %td= teacher.contrato
+        %td= teacher.celular
+        %td= link_to 'Show', teacher
+        %td= link_to 'Edit', edit_teacher_path(teacher)
+        %td= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Teacher', new_teacher_path

@@ -1,0 +1,10 @@
+= simple_form_for(@contrato) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :numero
+    = f.input :fecha_contrato_at
+    = f.input :valor
+
+  .form-actions
+    = f.button :submit

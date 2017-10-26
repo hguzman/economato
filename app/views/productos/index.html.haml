@@ -1,0 +1,23 @@
+%h1 Lista productos
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Descripcion
+      %th Medida
+      %th Valor
+      %th{colspan: "3"} Acciones
+
+  %tbody
+    - @productos.each do |producto|
+      %tr
+        %td= producto.descripcion
+        %td= producto.medida.medida
+        %td= number_to_currency producto.valor
+        %td= link_to 'Show', producto
+        %td= link_to 'Edit', edit_producto_path(producto)
+        %td= link_to 'Destroy', producto, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Producto', new_producto_path

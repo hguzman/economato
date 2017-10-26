@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Numero:
+  = @contrato.numero
+%p
+  %b Fecha contrato at:
+  = @contrato.fecha_contrato_at
+%p
+  %b Valor:
+  = @contrato.valor
+
+= link_to 'Edit', edit_contrato_path(@contrato)
+\|
+= link_to 'Back', contratos_path

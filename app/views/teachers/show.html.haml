@@ -1,0 +1,35 @@
+%p#notice= notice
+
+%p
+  %b Nombre:
+  = @teacher.nombre
+%p
+  %b Contrato:
+  = @teacher.contrato
+%p
+  %b Celular:
+  = @teacher.celular
+
+  %table.table.table-striped
+    %thead
+      %tr
+        %td Nº Contrato
+        %td Fecha contrato
+        %td Valor contrato
+        %td Ejecutado instructor
+        %td porcentaje ejecutado
+    %tbody
+      - @consolidados.each do |variable|
+
+        %tr
+          %td= variable[0].numero
+          %td= l variable[0].fecha_contrato_at, format: :long
+          %td= number_to_currency variable[0].valor
+          %td= number_to_currency variable[1]
+          %td= number_to_percentage((variable[1] * 100)/ variable[0].valor, precision: 2)
+
+
+
+= link_to 'Edit', edit_teacher_path(@teacher)
+\|
+= link_to 'Back', teachers_path

@@ -1,0 +1,9 @@
+%tr.fields
+  %td= f.association :producto, label_method: :descripcion, label: false, input_html: {class: "select2select", "data-placeholder": "Seleccione producto"}
+  %td= f.input :cantidad, placeholder: 'Cantidad', label: false
+  %td= f.input :observacion, placeholder: 'Observaciones', label: false
+  %td
+    = f.input :_destroy, as: :hidden
+    = link_to "javascript:void(0);", class: "remove_link pull-right1" do
+      = fa_icon "close", text: "remover"
+    -# = f.input :_destroy, as: :boolean, inline_label: 'Eliminar registro'

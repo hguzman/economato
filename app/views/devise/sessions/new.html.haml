@@ -1,0 +1,42 @@
+%nav.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "#"} SENA
+    #navbar.navbar-collapse.collapse
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-inline navbar-form navbar-right' }) do |f|
+        = f.input :email, label: false
+        = f.input :password, label: false
+        = f.button :submit, "Entrar", class: "btn btn-success"
+
+.jumbotron
+  .container
+    %h1 Economato
+    %p Software para el manejo de contrato economato
+    %p
+      %a.btn.btn-primary.btn-lg{:href => "#", :role => "button"} Leer mas »
+.container
+  / Example row of columns
+  .row
+    .col-md-4
+      %h2 Heading
+      %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+      %p
+        %a.btn.btn-default{:href => "#", :role => "button"} View details »
+    .col-md-4
+      %h2 Heading
+      %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+      %p
+        %a.btn.btn-default{:href => "#", :role => "button"} View details »
+    .col-md-4
+      %h2 Heading
+      %p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+      %p
+        %a.btn.btn-default{:href => "#", :role => "button"} View details »
+  %hr/
+  %footer
+    %p © 2017 SENA.

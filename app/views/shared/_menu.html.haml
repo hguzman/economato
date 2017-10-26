@@ -1,0 +1,9 @@
+%ul.nav.nav-sidebar
+  %li{class: "#{params[:controller] == 'welcome' ? 'active' : nil}"}= link_to "Dashboard", user_root_path
+%ul.nav.nav-sidebar
+  %li{class: "#{params[:controller] == 'contratos' ? 'active' : nil}"}= link_to "Contratos", contratos_path
+  %li{class: "#{params[:controller] == 'programs' ? 'active' : nil}"}= link_to "Programas", programs_path
+  %li{class: "#{params[:controller] == 'fichas' ? 'active' : nil}"}= link_to "Fichas", fichas_path
+  %li{class: "#{params[:controller] == 'teachers' ? 'active' : nil}"}= link_to "Instructores", teachers_path
+  %li{class: "#{params[:controller] == 'productos' ? 'active' : nil}"}= link_to "Productos", productos_path
+  %li{class: "#{params[:controller] == 'consolidados' ? 'active' : nil}"}= link_to "Consolidados", consolidados_path

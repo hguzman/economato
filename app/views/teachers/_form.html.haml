@@ -1,0 +1,11 @@
+= simple_form_for(@teacher) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :nombre
+    = f.input :contrato
+    = f.input :celular
+    = f.association :fichas, :as => :check_boxes, label_method: :ficha_programa
+
+  .form-actions
+    = f.button :submit

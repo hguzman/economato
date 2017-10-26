@@ -1,5 +1,5 @@
 default: &default
-  adapter: postgis
+  adapter: postgresql
   encoding: utf8
   pool: 5
   username: hguzman

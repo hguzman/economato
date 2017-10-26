@@ -1,0 +1,45 @@
+%p#notice= notice
+
+%p
+  %b Número consolidado:
+  = @consolidado.id
+  %br
+  %b Contrato
+  = @consolidado.contrato.numero
+  %br
+  %b Instructor
+  = @consolidado.teacher.nombre
+  %br
+  %b Ficha
+  = @consolidado.ficha.ficha
+
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Producto
+        %th Medida
+        %th Cantidad
+        %th Valor
+        %th Total
+    - @consolidado.detalles.each do |detalle|
+
+      %tr
+        %td= detalle.producto.descripcion
+        %td= detalle.producto.medida.medida
+        %td= detalle.cantidad
+        %td= number_to_currency(detalle.producto.valor)
+        %td= number_to_currency(detalle.valor_total)
+
+
+  %br
+  %b Total
+  = number_to_currency @consolidado.sumatoria
+  %br
+  %br
+  	
+
+= link_to_if !@consolidado.entregada?, "Entregar productos", entregar_productos_consolidado_path(@consolidado), method: :post
+\|
+= link_to 'Edit', edit_consolidado_path(@consolidado)
+\|
+= link_to 'Back', consolidados_path

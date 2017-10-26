@@ -1,0 +1,27 @@
+%h1 Lista contratos
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Numero
+      %th Fecha contrato
+      %th Valor
+      %th Ejecutado
+      %th % Ejecutado
+      %th{colspan: "3"} Acciones
+
+  %tbody
+    - @contratos.each do |contrato|
+      %tr
+        %td= contrato.numero
+        %td= l contrato.fecha_contrato_at, format: :long
+        %td= number_to_currency contrato.valor
+        %td= number_to_currency contrato.valor_total
+        %td= number_to_percentage((contrato.valor_total * 100)/ contrato.valor, precision: 2)
+        %td= link_to 'Show', contrato
+        %td= link_to 'Edit', edit_contrato_path(contrato)
+        %td= link_to 'Destroy', contrato, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Contrato', new_contrato_path

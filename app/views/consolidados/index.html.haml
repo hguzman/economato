@@ -1,0 +1,25 @@
+%h1 Listado consolidados
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Consolidado
+      %th Creado
+      %th Instructor
+      %th Entregados
+      %th{colspan: "3"} Acciones
+
+  %tbody
+    - @consolidados.each do |consolidado|
+      %tr
+        %td= consolidado.id
+        %td= l consolidado.created_at, format: :long
+        %td= consolidado.teacher.nombre
+        %td= consolidado.entregada? ? "SI" : "NO"
+        %td= link_to 'Show', consolidado
+        %td= link_to 'Edit', edit_consolidado_path(consolidado)
+        %td= link_to 'Destroy', consolidado, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Consolidado', new_consolidado_path

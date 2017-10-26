@@ -1,0 +1,10 @@
+= simple_form_for(@producto) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :descripcion
+    = f.association :medida, label_method: :medida
+    = f.input :valor
+
+  .form-actions
+    = f.button :submit

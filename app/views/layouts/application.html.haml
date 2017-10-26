@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Economato
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.css")
+    = javascript_include_tag "https://www.gstatic.com/charts/loader.js"
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = render "shared/top"
+    .container-fluid
+      .row
+        .col-sm-3.col-md-2.sidebar
+          = render "shared/menu"
+        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+          = yield
+
+    = javascript_include_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.js")
+    = yield :scripts
