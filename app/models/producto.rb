@@ -12,4 +12,8 @@
 
 class Producto < ApplicationRecord
   belongs_to :medida
+
+  def producto_medida
+    "#{descripcion} - #{medida.medida}"
+  end
 end

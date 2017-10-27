@@ -10,6 +10,7 @@ class FichasController < ApplicationController
   # GET /fichas/1
   # GET /fichas/1.json
   def show
+    @consolidados = @ficha.consolidados.group(:contrato).sum(:valor_total)
   end
 
   # GET /fichas/new

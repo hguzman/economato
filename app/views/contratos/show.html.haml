@@ -5,10 +5,10 @@
   = @contrato.numero
 %p
   %b Fecha contrato at:
-  = @contrato.fecha_contrato_at
+  = l @contrato.fecha_contrato_at, format: :long
 %p
   %b Valor:
-  = @contrato.valor
+  = number_to_currency @contrato.valor
 
 = link_to 'Edit', edit_contrato_path(@contrato)
 \|
