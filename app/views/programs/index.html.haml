@@ -14,10 +14,10 @@
         %td= program.codigo
         %td= program.nombre
         %td= program.fichas.count
-        %td= link_to 'Show', program
-        %td= link_to 'Edit', edit_program_path(program)
-        %td= link_to 'Destroy', program, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Ver', program
+        %td= link_to 'Editar', edit_program_path(program)
+        %td= link_to 'Borrar', program, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New Program', new_program_path
+= link_to 'Nuevo Programa', new_program_path

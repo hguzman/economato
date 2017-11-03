@@ -1,10 +1,12 @@
 class ContratosController < ApplicationController
   before_action :set_contrato, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /contratos
   # GET /contratos.json
   def index
     @contratos = Contrato.all
+    authorize @contratos
   end
 
   # GET /contratos/1

@@ -1,0 +1,5 @@
+en:
+  pundit:
+    default: "Usted no esta autorizado para realizar esta acción"
+    contrato_policy:
+      Index?: "No esta autorizado para listar contratos"

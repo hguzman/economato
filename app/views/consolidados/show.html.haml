@@ -1,5 +1,3 @@
-%p#notice= notice
-
 %p
   %b Número consolidado:
   = @consolidado.id
@@ -36,7 +34,7 @@
   = number_to_currency @consolidado.sumatoria
   %br
   %br
-  	
+
 
 = link_to_if !@consolidado.entregada?, "Entregar productos", entregar_productos_consolidado_path(@consolidado), method: :post
 \|

@@ -1,0 +1,6 @@
+en:
+  consolidados:
+    edit:
+      info: No se puede editar, ya el producto fue entregado
+    entregar_productos:
+      success: Se ajusto el presupuesto de manera correcta

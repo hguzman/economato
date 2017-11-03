@@ -12,7 +12,7 @@
 
 FactoryGirl.define do
   factory :producto do
-    descripcion "MyString"
+    descripcion "Piña"
     medida nil
     valor "9.99"
   end

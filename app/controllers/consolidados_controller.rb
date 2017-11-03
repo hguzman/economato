@@ -1,8 +1,10 @@
 class ConsolidadosController < ApplicationController
   respond_to :html
   before_action :set_consolidado, only: [:show, :edit, :update, :destroy, :entregar_productos]
+  before_action :authenticate_user!
 
   def entregar_productos
+    authorize @consolidado
     @consolidado.actualiza_valor
     if @consolidado.save
       flash[:success] = t(".success")
@@ -35,21 +37,29 @@ class ConsolidadosController < ApplicationController
 
   # GET /consolidados/1/edit
   def edit
+    if @consolidado.entregada?
+      flash[:info] = t(".info")
+      redirect_to consolidado_path(@consolidado)
+    end
   end
 
   # POST /consolidados
   # POST /consolidados.json
   def create
     @consolidado = Consolidado.new(consolidado_params)
-
-    respond_to do |format|
-      if @consolidado.save
-        format.html { redirect_to @consolidado, notice: 'Consolidado was successfully created.' }
-        format.json { render :show, status: :created, location: @consolidado }
-      else
-        format.html { render :new }
-        format.json { render json: @consolidado.errors, status: :unprocessable_entity }
+    begin
+      respond_to do |format|
+        if @consolidado.save
+          format.html { redirect_to @consolidado, notice: 'Consolidado was successfully created.' }
+          format.json { render :show, status: :created, location: @consolidado }
+        else
+          format.html { render :new }
+          format.json { render json: @consolidado.errors, status: :unprocessable_entity }
+        end
       end
+    rescue ActiveRecord::RecordNotUnique
+      flash.now[:alert] = "Productos repetidos"
+      render :new
     end
   end
 

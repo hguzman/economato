@@ -14,8 +14,8 @@
 
 FactoryGirl.define do
   factory :detalle do
-    producto nil
+    producto 1
     cantidad "9.99"
-    consolidado nil
+    consolidado 1
   end
 end

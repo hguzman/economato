@@ -16,10 +16,10 @@
         %td= ficha.program.nombre
         %td= l ficha.fecha_inicio_at, format: :long
         %td= l ficha.fecha_fin_at, format: :long
-        %td= link_to 'Show', ficha
-        %td= link_to 'Edit', edit_ficha_path(ficha)
-        %td= link_to 'Destroy', ficha, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Ver', ficha
+        %td= link_to 'Editar', edit_ficha_path(ficha)
+        %td= link_to 'Borrar', ficha, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New Ficha', new_ficha_path
+= link_to 'Nueva Ficha', new_ficha_path

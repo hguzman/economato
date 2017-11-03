@@ -16,10 +16,10 @@
         %td= l consolidado.created_at, format: :long
         %td= consolidado.teacher.nombre
         %td= consolidado.entregada? ? "SI" : "NO"
-        %td= link_to 'Show', consolidado
-        %td= link_to 'Edit', edit_consolidado_path(consolidado)
-        %td= link_to 'Destroy', consolidado, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Ver', consolidado
+        %td= link_to 'Editar', edit_consolidado_path(consolidado)
+        %td= link_to 'Borrar', consolidado, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New Consolidado', new_consolidado_path
+= link_to 'Nuevo Consolidado', new_consolidado_path

@@ -22,7 +22,7 @@ class Detalle < ApplicationRecord
   before_save :actualiza_valor
 
   private
-  
+
   def actualiza_valor
     self[:valor_total] = cantidad * producto.valor
   end

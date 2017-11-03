@@ -64,3 +64,5 @@ gem 'annotate'
 gem 'select2-rails', '~> 4.0', '>= 4.0.3'
 gem 'chartkick', '~> 2.2', '>= 2.2.4'
 gem 'awesome_print', '~> 1.8'
+gem 'rolify'
+gem "pundit"

@@ -6,9 +6,20 @@ module ApplicationHelper
     id = new_object.object_id
     fields = f.fields_for(association, new_object, child_index: id) do |builder|
     render(association.to_s.singularize + "_fields", f: builder)
+    end
+    # link_to(name, 'javascript:void(0);', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
+    link_to(name, 'javascript:void(0);', class: "add_fields", data: {id: id, fields: fields.gsub(/(?<!\n)\n(?!\n)/, "")})
   end
-  # link_to(name, 'javascript:void(0);', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
-  link_to(name, 'javascript:void(0);', class: "add_fields", data: {id: id, fields: fields.gsub(/(?<!\n)\n(?!\n)/, "")})
-end
+
+  def custom_bootstrap_flash
+    flash_messages = []
+    flash.each do |type, message|
+      type = 'success' if type == 'notice'
+      type = 'error'   if type == 'alert'
+      text = "<script>toastr.#{type}('#{message}');</script>"
+      flash_messages << text.html_safe if message
+    end
+    flash_messages.join("\n").html_safe
+  end
 
 end

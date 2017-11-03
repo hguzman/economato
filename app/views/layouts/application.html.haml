@@ -15,6 +15,7 @@
         .col-sm-3.col-md-2.sidebar
           = render "shared/menu"
         .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+          = custom_bootstrap_flash
           = yield
 
     = javascript_include_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.js")
