@@ -1,35 +1,51 @@
-%p#notice= notice
+%dl.dl-horizontal
+  %dt Nombre instructor
+  %dd= @teacher.nombre
+  %dt Contrato Instructor
+  %dd= @teacher.nombre
+  %dt Celular
+  %dd= @teacher.celular
 
-%p
-  %b Nombre:
-  = @teacher.nombre
-%p
-  %b Contrato:
-  = @teacher.contrato
-%p
-  %b Celular:
-  = @teacher.celular
+.row
+  - @consolidados.each do |variable|
 
-  %table.table.table-striped
-    %thead
-      %tr
-        %td Nº Contrato
-        %td Fecha contrato
-        %td Valor contrato
-        %td Ejecutado instructor
-        %td porcentaje ejecutado
-    %tbody
-      - @consolidados.each do |variable|
+    .col-md-4
 
-        %tr
-          %td= variable[0].numero
-          %td= l variable[0].fecha_contrato_at, format: :long
-          %td= number_to_currency variable[0].valor
-          %td= number_to_currency variable[1]
-          %td= number_to_percentage((variable[1] * 100)/ variable[0].valor, precision: 2)
+      .dashboard-box
+        .title
+          %span.label.label-success.pull-right= l variable[0].fecha_contrato_at, format: :long
+          %h5= variable[0].numero
+        .contenido
+          %h1= number_to_currency variable[1]
+          %span.pull-right= number_to_percentage((variable[1] * 100)/ variable[0].valor, precision: 2)
+          %small Total ejecutado
 
-
+%br
 
 = link_to 'Edit', edit_teacher_path(@teacher)
 \|
 = link_to 'Back', teachers_path
+
+%br
+%br
+	
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Consolidado
+      %th Contrato
+      %th Fecha creación
+      %th Ficha
+      %th Entregado
+      %th valor
+  %tbody
+    - @teacher.consolidados.each do |consolidado|
+
+      %tr
+        %td= link_to "#{consolidado.id}", consolidado
+        %td= link_to "#{consolidado.contrato.numero}", consolidado.contrato
+        %td= l consolidado.created_at, format: :long
+        %td= consolidado.ficha.ficha
+        %td= consolidado.entregada? ? "SI" : "NO"
+        %td= number_to_currency consolidado.valor_total

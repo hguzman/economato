@@ -1,20 +1,16 @@
 # == Schema Information
 #
-# Table name: consolidados
+# Table name: activities
 #
 #  id          :integer          not null, primary key
-#  teacher_id  :integer
+#  nombre      :string
+#  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  ficha_id    :integer
-#  contrato_id :integer
-#  entregada?  :boolean
-#  valor_total :decimal(, )
-#  activity_id :integer
 #
 
 require 'rails_helper'
 
-RSpec.describe Consolidado, type: :model do
+RSpec.describe Activity, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end

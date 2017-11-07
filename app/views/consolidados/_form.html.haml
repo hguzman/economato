@@ -2,9 +2,10 @@
   = fc.error_notification
 
   .form-inputs
-    = fc.association :contrato, label_method: :numero, input_html: {class: "select2select", "data-placeholder": "Seleccione contrato"}
+    = fc.association :contrato, label_method: :nombre_completo, input_html: {class: "select2select", "data-placeholder": "Seleccione contrato"}
     = fc.association :teacher, label_method: :nombre, input_html: {class: "select2select", "data-placeholder": "Seleccione instructor"}
-    = fc.input :ficha_id, collection: Teacher.all, as: :grouped_select, group_method: :fichas, label_method: :ficha_programa, group_label_method: :nombre
+    = fc.input :ficha_id, collection: Teacher.all, as: :grouped_select, group_method: :fichas, label_method: :ficha_programa, group_label_method: :nombre, input_html: {class: "select2select", "data-placeholder": "Seleccione ficha"}
+    = fc.association :activity, label_method: :nombre, input_html: {class: "select2select", "data-placeholder": "Seleccione actividad"}
 
     %table.table.table-hover
       %thead

@@ -1,0 +1,12 @@
+.dashboard-box{
+  border-width: thin;
+  border-style: solid;
+  border-color: #eee;
+  border-radius: 5px;
+  padding: 10px;
+  .title{
+    h5{
+      margin: 0px;
+    }
+  }
+}

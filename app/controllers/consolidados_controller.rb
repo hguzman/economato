@@ -95,6 +95,6 @@ class ConsolidadosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def consolidado_params
-      params.require(:consolidado).permit(:teacher_id, :ficha_id, :contrato_id, detalles_attributes: [:id, :producto_id, :cantidad, :observacion, :_destroy])
+      params.require(:consolidado).permit(:teacher_id, :ficha_id, :contrato_id, :activity_id, detalles_attributes: [:id, :producto_id, :cantidad, :observacion, :_destroy])
     end
 end

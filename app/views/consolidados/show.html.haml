@@ -2,14 +2,20 @@
   %b Número consolidado:
   = @consolidado.id
   %br
-  %b Contrato
+  %b Fecha creación:
+  = l @consolidado.created_at, format: :long
+  %br
+  %b Contrato:
   = @consolidado.contrato.numero
   %br
-  %b Instructor
+  %b Instructor:
   = @consolidado.teacher.nombre
   %br
-  %b Ficha
+  %b Ficha:
   = @consolidado.ficha.ficha
+  %br
+  %b Actividad:
+  = @consolidado.activity.nombre
 
   %table.table.table-striped
     %thead
@@ -30,8 +36,9 @@
 
 
   %br
-  %b Total
-  = number_to_currency @consolidado.sumatoria
+  %h3
+    %b Total
+    = number_to_currency @consolidado.sumatoria
   %br
   %br
 

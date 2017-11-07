@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171102213955) do
+ActiveRecord::Schema.define(version: 20171107132856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "nombre"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "consolidados", force: :cascade do |t|
     t.bigint "teacher_id"
@@ -23,6 +30,8 @@ ActiveRecord::Schema.define(version: 20171102213955) do
     t.bigint "contrato_id"
     t.boolean "entregada?"
     t.decimal "valor_total"
+    t.bigint "activity_id"
+    t.index ["activity_id"], name: "index_consolidados_on_activity_id"
     t.index ["contrato_id"], name: "index_consolidados_on_contrato_id"
     t.index ["ficha_id"], name: "index_consolidados_on_ficha_id"
     t.index ["teacher_id"], name: "index_consolidados_on_teacher_id"
@@ -135,6 +144,7 @@ ActiveRecord::Schema.define(version: 20171102213955) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "consolidados", "activities"
   add_foreign_key "consolidados", "contratos"
   add_foreign_key "consolidados", "fichas"
   add_foreign_key "consolidados", "teachers"

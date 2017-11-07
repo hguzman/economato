@@ -10,6 +10,7 @@
 #  contrato_id :integer
 #  entregada?  :boolean
 #  valor_total :decimal(, )
+#  activity_id :integer
 #
 
 FactoryGirl.define do

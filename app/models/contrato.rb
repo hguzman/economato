@@ -15,4 +15,8 @@ class Contrato < ApplicationRecord
   has_many :consolidados
   validates :numero, :fecha_contrato_at, :valor, presence: true
   validates :numero, uniqueness: true
+
+  def nombre_completo
+    "#{numero} / #{fecha_contrato_at}"
+  end
 end
