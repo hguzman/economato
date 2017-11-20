@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    models:
+      teacher:
+        one: Instructor
+        other: Instructores
+    attributes:
+      consolidado:

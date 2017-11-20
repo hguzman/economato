@@ -1,8 +1,9 @@
-%h1 Lista programas
+%h1= "Lista #{Program.model_name.human(count: 2)}"
 
-%table.table.table-striped
+%table.footable.table.table-striped.toggle-arrow-tiny
   %thead
     %tr
+
       %th Codigo
       %th Nombre
       %th Fichas
@@ -16,8 +17,14 @@
         %td= program.fichas.count
         %td= link_to 'Ver', program
         %td= link_to 'Editar', edit_program_path(program)
-        %td= link_to 'Borrar', program, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Borrar', program, method: :delete, data: { confirm: '¿Esta seguro?' }
 
 %br
 
 = link_to 'Nuevo Programa', new_program_path
+
+- content_for :scripts do
+  :javascript
+    $(function() {
+      $('.footable').footable();
+    });

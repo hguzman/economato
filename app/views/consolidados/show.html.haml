@@ -43,8 +43,14 @@
   %br
 
 
-= link_to_if !@consolidado.entregada?, "Entregar productos", entregar_productos_consolidado_path(@consolidado), method: :post
+= link_to "Nuevo", new_consolidado_path()
 \|
-= link_to 'Edit', edit_consolidado_path(@consolidado)
+= link_to 'Editar', edit_consolidado_path(@consolidado)
 \|
-= link_to 'Back', consolidados_path
+= link_to 'Ver todos', consolidados_path
+\|
+= link_to_if @consolidado.aasm_state == "creada", "Enviar proveedor", enviar_proveedor_consolidado_path(@consolidado), method: :post, data: {confirm: "¿Esta seguro?", mensaje: "Recuerde que el sistema enviara un Email al proveedor del contrato", method: "post"}
+\|
+= link_to_if @consolidado.aasm_state == "proveedor", "Recibir proveedor", recibir_proveedor_consolidado_path(@consolidado), method: :post, data: {confirm: "¿Esta seguro?", mensaje: "Registrara la fecha en que recibio los articulos", method: "post"}
+\|
+= link_to_if  @consolidado.aasm_state == "aceptada", "Cerrar consolidado", cerrar_orden_consolidado_path(@consolidado), method: :post, data: {confirm: "¿Esta seguro?", mensaje: "Recuerde que no podra realizar cambios en el consolidado y se registrara la fecha de cierre", method: "post"}

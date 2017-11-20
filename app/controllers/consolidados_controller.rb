@@ -1,27 +1,33 @@
 class ConsolidadosController < ApplicationController
   respond_to :html
-  before_action :set_consolidado, only: [:show, :edit, :update, :destroy, :entregar_productos]
+  before_action :set_consolidado, only: [:show, :edit, :update, :destroy, :enviar_proveedor, :recibir_proveedor, :cerrar_orden]
   before_action :authenticate_user!
 
-  def entregar_productos
-    authorize @consolidado
-    @consolidado.actualiza_valor
-    if @consolidado.save
-      flash[:success] = t(".success")
-      respond_with @consolidado
-    end
+  def enviar_proveedor
+    @consolidado.enviar!
+    ConsolidadoMailer.enviar_pedido(current_user, @consolidado).deliver
+    flash[:success] = t(".success")
+    respond_with @consolidado
+  end
 
-    # if @consolidado.update_attribute(:entregada?, true)
-    # # if @consolidado.update_attributes(entregada?: true, valor_total: @consolidado.detalles.sum(:valor_total))
-    #     flash[:success] = t(".success")
-    #     respond_with @consolidado
-    # end
+  def recibir_proveedor
+    @consolidado.recibir!
+    flash[:success] = t(".success")
+    respond_with @consolidado
+  end
+
+  def cerrar_orden
+    # authorize @consolidado
+    @consolidado.cerrar!
+    flash[:success] = t(".success")
+    respond_with @consolidado
+
   end
 
   # GET /consolidados
   # GET /consolidados.json
   def index
-    @consolidados = Consolidado.all
+    @consolidados = Consolidado.order(:id)
   end
 
   # GET /consolidados/1

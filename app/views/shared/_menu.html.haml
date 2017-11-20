@@ -7,4 +7,4 @@
   %li{class: "#{params[:controller] == 'teachers' ? 'active' : nil}"}= link_to "Instructores", teachers_path
   %li{class: "#{params[:controller] == 'productos' ? 'active' : nil}"}= link_to "Productos", productos_path
   %li{class: "#{params[:controller] == 'activities' ? 'active' : nil}"}= link_to "Actividades", activities_path
-  %li{class: "#{params[:controller] == 'consolidados' ? 'active' : nil}"}= link_to "Consolidados", consolidados_path
+  %li{class: "#{params[:controller] == 'consolidados' ? 'active' : nil}"}= link_to "Consolidados", consolidados_path, "data-no-turbolink" => true

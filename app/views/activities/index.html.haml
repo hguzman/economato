@@ -1,6 +1,6 @@
-%h1 Listing activities
+%h1= "Lista #{Activity.model_name.human(count: 2)}"
 
-%table
+%table.footable.table.table-striped.toggle-arrow-tiny
   %thead
     %tr
       %th Nombre
@@ -16,8 +16,14 @@
         %td= activity.description
         %td= link_to 'Show', activity
         %td= link_to 'Edit', edit_activity_path(activity)
-        %td= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Destroy', activity, method: :delete, data: { confirm: '¿Esta seguro?' }
 
 %br
 
 = link_to 'New Activity', new_activity_path
+
+- content_for :scripts do
+  :javascript
+    $(function() {
+      $('.footable').footable();
+    });

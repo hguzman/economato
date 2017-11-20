@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+ruby "2.3.4"
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -66,3 +66,6 @@ gem 'chartkick', '~> 2.2', '>= 2.2.4'
 gem 'awesome_print', '~> 1.8'
 gem 'rolify'
 gem "pundit"
+gem 'aasm'
+gem 'kaminari', '~> 1.0', '>= 1.0.1'
+gem 'bootstrap-kaminari-views', '~> 0.0.5'

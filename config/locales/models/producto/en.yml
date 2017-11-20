@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    models:
+      producto:
+        one: Producto
+        other: Productos
+    attributes:
+      consolidado:

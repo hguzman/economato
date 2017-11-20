@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    models:
+      activity:
+        one: Actividad
+        other: Actividades
+    attributes:
+      consolidado:

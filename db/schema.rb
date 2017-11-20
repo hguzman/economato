@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107132856) do
+ActiveRecord::Schema.define(version: 20171108144854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,10 @@ ActiveRecord::Schema.define(version: 20171107132856) do
     t.boolean "entregada?"
     t.decimal "valor_total"
     t.bigint "activity_id"
+    t.string "aasm_state"
+    t.datetime "envio_proveedor_at"
+    t.datetime "recibida_sena_at"
+    t.datetime "fecha_cierre_at"
     t.index ["activity_id"], name: "index_consolidados_on_activity_id"
     t.index ["contrato_id"], name: "index_consolidados_on_contrato_id"
     t.index ["ficha_id"], name: "index_consolidados_on_ficha_id"

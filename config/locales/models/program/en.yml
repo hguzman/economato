@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    models:
+      program:
+        one: Programa
+        other: Programas
+    attributes:
+      consolidado:

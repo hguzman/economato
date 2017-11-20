@@ -20,7 +20,7 @@
         %td= number_to_percentage((contrato.valor_total * 100)/ contrato.valor, precision: 2)
         %td= link_to 'Ver', contrato
         %td= link_to 'Editar', edit_contrato_path(contrato)
-        %td= link_to 'Borrar', contrato, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Borrar', contrato, method: :delete, data: { confirm: '¿Esta seguro?' }
 
 %br
 

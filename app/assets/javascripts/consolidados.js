@@ -1,4 +1,4 @@
-
+//= require footable/footable.all.min.js
 
 
 profesores = $('#consolidado_ficha_id').html();

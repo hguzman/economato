@@ -1,25 +1,45 @@
-%h1 Listado consolidados
+%h1= "Listado #{Consolidado.model_name.human(count: 2)}"
 
-%table.table.table-striped
+= link_to 'Nuevo Consolidado', new_consolidado_path, class: "btn btn-success"
+
+
+%table.footable.table.table-striped.toggle-arrow-tiny
   %thead
     %tr
-      %th Consolidado
-      %th Creado
+      %th{"data-toggle": "true"} ID
       %th Instructor
-      %th Entregados
-      %th{colspan: "3"} Acciones
+      %th Ficha
+      %th{"data-hide": "all"} Enviado
+      %th{"data-hide": "all"} Recibido
+      %th{"data-hide": "all"} Cierre
+      %th{"data-hide": "all"} Actividad
+      %th Estado
+      %th{colspan: "2"} Acciones
 
   %tbody
     - @consolidados.each do |consolidado|
       %tr
-        %td= consolidado.id
-        %td= l consolidado.created_at, format: :long
-        %td= consolidado.teacher.nombre
-        %td= consolidado.entregada? ? "SI" : "NO"
-        %td= link_to 'Ver', consolidado
+        %td= link_to "#{consolidado.id}", consolidado
+        %td= link_to "#{consolidado.teacher.nombre}", consolidado.teacher
+        %td= link_to "#{consolidado.ficha.ficha_programa}", consolidado.ficha
+        %td= l consolidado.envio_proveedor_at, format: :long if consolidado.envio_proveedor_at.present?
+        %td= l consolidado.recibida_sena_at, format: :long if consolidado.recibida_sena_at.present?
+        %td= l consolidado.fecha_cierre_at, format: :long if consolidado.fecha_cierre_at.present?
+        %td= link_to "#{consolidado.activity.description}", consolidado.activity
+        %td= consolidado.aasm.human_state
         %td= link_to 'Editar', edit_consolidado_path(consolidado)
-        %td= link_to 'Borrar', consolidado, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Borrar', consolidado, method: :delete, data: { confirm: '¿Esta seguro?' }
+
+  %tfoot
+    %tr
+      %td{colspan: 7}
+        %ul.pagination.pull-right
 
 %br
 
-= link_to 'Nuevo Consolidado', new_consolidado_path
+
+- content_for :scripts do
+  :javascript
+    $(function() {
+      $('.footable').footable();
+    });

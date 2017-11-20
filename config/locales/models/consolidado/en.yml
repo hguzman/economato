@@ -1,6 +1,21 @@
 en:
+  activerecord:
+    models:
+      consolidado:
+        one: Consolidado
+        other: Consolidados
+    attributes:
+      consolidado:
+        teacher: Instructor
+        activity: Actividad
   consolidados:
     edit:
       info: No se puede editar, ya el producto fue entregado
     entregar_productos:
       success: Se ajusto el presupuesto de manera correcta
+    enviar_proveedor:
+      success: Correo enviado al proveedor
+    cerrar_orden:
+      success: Consolidado cerrado de manera correcta
+    recibir_proveedor:
+      success: Mercancia recibida

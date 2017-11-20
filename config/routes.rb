@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :detalles
   resources :productos
   resources :consolidados do
-    post 'entregar_productos', on: :member
+    post 'enviar_proveedor', on: :member
+    post 'recibir_proveedor', on: :member
+    post 'cerrar_orden', on: :member
   end
   resources :teachers
   resources :fichas

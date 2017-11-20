@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    models:
+      ficha:
+        one: Ficha
+        other: Fichas
+    attributes:
+      consolidado:

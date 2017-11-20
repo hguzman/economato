@@ -1,6 +1,7 @@
-%h1 Lista fichas
+%h1= "Lista #{Ficha.model_name.human(count: 2)}"
 
-%table.table.table-striped
+
+%table.footable.table.table-striped.toggle-arrow-tiny
   %thead
     %tr
       %th Ficha
@@ -18,8 +19,14 @@
         %td= l ficha.fecha_fin_at, format: :long
         %td= link_to 'Ver', ficha
         %td= link_to 'Editar', edit_ficha_path(ficha)
-        %td= link_to 'Borrar', ficha, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Borrar', ficha, method: :delete, data: { confirm: '¿Esta seguro?' }
 
 %br
 
 = link_to 'Nueva Ficha', new_ficha_path
+
+- content_for :scripts do
+  :javascript
+    $(function() {
+      $('.footable').footable();
+    });

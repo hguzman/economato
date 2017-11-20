@@ -1,7 +1,10 @@
 //= require jquery
+//= require jquery_ujs
 //= require rails-ujs
 //= require bootstrap-sprockets
 //= require toastr/toastr.min.js
+//= require confirm.js
+//= require sweetalert/sweetalert.min.js
 //= require select2
 //= require select2_locale_es
 //= require chartkick
