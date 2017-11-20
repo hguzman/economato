@@ -69,3 +69,4 @@ gem "pundit"
 gem 'aasm'
 gem 'kaminari', '~> 1.0', '>= 1.0.1'
 gem 'bootstrap-kaminari-views', '~> 0.0.5'
+gem 'delayed_job_active_record'
