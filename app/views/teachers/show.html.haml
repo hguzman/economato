@@ -22,30 +22,30 @@
 
 %br
 
-= link_to 'Edit', edit_teacher_path(@teacher)
+= link_to 'Editar', edit_teacher_path(@teacher)
 \|
-= link_to 'Back', teachers_path
+= link_to 'Regresar', teachers_path
 
 %br
 %br
 	
-
-%table.table.table-striped
-  %thead
-    %tr
-      %th Consolidado
-      %th Contrato
-      %th Fecha creación
-      %th Ficha
-      %th Entregado
-      %th valor
-  %tbody
-    - @teacher.consolidados.each do |consolidado|
-
+- if @teacher.consolidados.present?
+  %table.table.table-striped
+    %thead
       %tr
-        %td= link_to "#{consolidado.id}", consolidado
-        %td= link_to "#{consolidado.contrato.numero}", consolidado.contrato
-        %td= l consolidado.created_at, format: :long
-        %td= consolidado.ficha.ficha
-        %td= consolidado.entregada? ? "SI" : "NO"
-        %td= number_to_currency consolidado.valor_total
+        %th Consolidado
+        %th Contrato
+        %th Fecha creación
+        %th Ficha
+        %th Entregado
+        %th valor
+    %tbody
+      - @teacher.consolidados.each do |consolidado|
+
+        %tr
+          %td= link_to "#{consolidado.id}", consolidado
+          %td= link_to "#{consolidado.contrato.numero}", consolidado.contrato
+          %td= l consolidado.created_at, format: :long
+          %td= consolidado.ficha.ficha
+          %td= consolidado.entregada? ? "SI" : "NO"
+          %td= number_to_currency consolidado.valor_total
