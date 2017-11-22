@@ -21,6 +21,7 @@ module Economato
       end if File.exists?(env_file)
     end
 
+    config.active_job.queue_adapter = :delayed_job
 
     # Carga todos los locale en cualquier carpeta dentro de locales
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales','**', '*.{rb,yml}').to_s]
