@@ -5,4 +5,8 @@ en:
         one: Ficha
         other: Fichas
     attributes:
-      consolidado:
+      ficha:
+        ficha: Código ficha
+        program: Nombre programa
+        fecha_inicio_at: Fecha inicio formación
+        fecha_fin_at: Fecha fin formación

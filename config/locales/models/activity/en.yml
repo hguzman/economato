@@ -5,4 +5,6 @@ en:
         one: Actividad
         other: Actividades
     attributes:
-      consolidado:
+      activity:
+        nombre: Nombre actividad
+        description: Descripción actividad

@@ -5,4 +5,6 @@ en:
         one: Programa
         other: Programas
     attributes:
-      consolidado:
+      program:
+        codigo: Código programa
+        nombre: Nombre programa

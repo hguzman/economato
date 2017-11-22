@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    models:
+      contrato:
+        one: Contrato
+        other: Contratos
+    attributes:
+      contrato:
+        numero: Número contrato
+        fecha_contrato_at: Fecha del contrato
+        valor: Valor contrato 

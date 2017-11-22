@@ -5,4 +5,7 @@ en:
         one: Producto
         other: Productos
     attributes:
-      consolidado:
+      producto:
+        descripcion: Descripción producto
+        medida: Unidad de medida
+        valor: Valor producto en contrato

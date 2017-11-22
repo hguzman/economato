@@ -5,4 +5,8 @@ en:
         one: Instructor
         other: Instructores
     attributes:
-      consolidado:
+      teacher:
+        nombre: Nombre instructor
+        contrato: número contrato
+        celular: Número celular
+        fichas: Fichas asignadas
