@@ -3,7 +3,7 @@
 
   .form-inputs
     = f.input :ficha
-    = f.association :program, label_method: :nombre
+    = f.association :program, label_method: :nombre, input_html: {class: "select2select"}
     = f.input :fecha_inicio_at
     = f.input :fecha_fin_at
 

@@ -1,4 +1,3 @@
-%p#notice= notice
 
 %p
   %b Numero:
@@ -10,6 +9,6 @@
   %b Valor:
   = number_to_currency @contrato.valor
 
-= link_to 'Edit', edit_contrato_path(@contrato)
+= link_to 'Editar', edit_contrato_path(@contrato)
 \|
-= link_to 'Back', contratos_path
+= link_to 'Regresar', contratos_path
