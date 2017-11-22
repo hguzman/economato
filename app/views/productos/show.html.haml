@@ -1,4 +1,3 @@
-%p#notice= notice
 
 %p
   %b Descripcion:
@@ -10,6 +9,6 @@
   %b Valor:
   = number_to_currency @producto.valor
 
-= link_to 'Edit', edit_producto_path(@producto)
+= link_to 'Editar', edit_producto_path(@producto)
 \|
-= link_to 'Back', productos_path
+= link_to 'Regresar', productos_path

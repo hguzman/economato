@@ -90,4 +90,19 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Envio de correos electornicos
+  config.action_mailer.default_url_options = { protocol: 'http', host: 'https://immense-sands-86677.herokuapp.com', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address: 'smtp.gmail.com',
+  authentication: :plain,
+  domain: 'https://immense-sands-86677.herokuapp.com',
+  port: 587,
+  user_name: ENV["GMAIL_USERNAME"],
+  password: ENV["GMAIL_PASSWORD"],
+  enable_starttls_auto: true  }
+
+
+
 end

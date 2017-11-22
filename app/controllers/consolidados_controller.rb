@@ -5,7 +5,7 @@ class ConsolidadosController < ApplicationController
 
   def enviar_proveedor
     @consolidado.enviar!
-    ConsolidadoMailer.enviar_pedido(current_user, @consolidado).deliver
+    ConsolidadoMailer.enviar_pedido(current_user, @consolidado).deliver_later
     flash[:success] = t(".success")
     respond_with @consolidado
   end
